@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bảo AI - Quản lý điểm thông minh</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <title>Score Tracker AI</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<div class="login" id="loginBox">
-    <h2>🎓 Đăng nhập học sinh</h2>
-    <input type="text" id="studentName" placeholder="Nhập tên của bạn">
-    <button onclick="login()">Bắt đầu</button>
+<h1>📊 Score Tracker AI</h1>
+
+<nav>
+    <button onclick="showTab('score')">Nhập điểm</button>
+    <button onclick="showTab('predict')">Dự đoán AI</button>
+    <button onclick="showTab('practice')">Luyện tập</button>
+</nav>
+
+<!-- TAB NHẬP ĐIỂM -->
+<div id="score" class="tab">
+    <h2>Nhập điểm</h2>
+
+    <input id="tx1" placeholder="TX 1">
+    <input id="tx2" placeholder="TX 2">
+    <input id="tx3" placeholder="TX 3">
+    <input id="tx4" placeholder="TX 4">
+    <input id="tx5" placeholder="TX 5">
+
+    <input id="gk" placeholder="Giữa kỳ">
+    <input id="ck" placeholder="Cuối kỳ">
+
+    <button onclick="calculate()">Tính điểm</button>
+
+    <p id="result"></p>
+    <p id="comment"></p>
 </div>
 
-<div class="app hidden" id="app">
-    <h1>📊 Bảo AI - Quản lý điểm thông minh</h1>
-    <p id="welcome"></p>
+<!-- TAB DỰ ĐOÁN -->
+<div id="predict" class="tab hidden">
+    <h2>Dự đoán AI</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Môn</th>
-                <th>TX</th>
-                <th>GK</th>
-                <th>CK</th>
-                <th>TB</th>
-                <th>Học lực</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-    </table>
+    <input id="hk1" placeholder="HK I">
+    <input id="target" placeholder="Mục tiêu cả năm">
 
-    <button onclick="addSubject()">➕ Thêm môn</button>
-    <button onclick="saveData()">💾 Lưu</button>
-    <button onclick="exportCSV()">⬇ Xuất CSV</button>
+    <button onclick="predict()">Dự đoán HK II</button>
 
-    <h2>📈 Biểu đồ điểm trung bình</h2>
-    <canvas id="chart"></canvas>
-
-    <h2>🤖 AI Gợi ý mục tiêu</h2>
-    <p id="aiSuggest"></p>
+    <p id="predictResult"></p>
 </div>
 
-<script src="script.js"></script>
+<!-- TAB LUYỆN TẬP -->
+<div id="practice" class="tab hidden">
+    <h2>Luyện tập</h2>
+
+    <textarea id="practiceText" placeholder="Nhập nội dung bài học"></textarea>
+    <button onclick="generateExam()">Tạo đề</button>
+
+    <pre id="exam"></pre>
+    <button onclick="downloadExam()">Tải đề</button>
+</div>
+
+<script src="./js/data.js"></script>
+<script src="./js/calculator.js"></script>
+<script src="./js/ai.js"></script>
+<script src="./js/practice.js"></script>
+<script src="./js/main.js"></script>
+
 </body>
 </html>
