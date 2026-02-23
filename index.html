@@ -1,71 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Phần mềm cá nhân hóa quản lý điểm số</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      color: white;
-      text-align: center;
-    }
-
-    .container {
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background: white;
-      color: #4e73df;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #f8f9fc;
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảo AI - Quản lý điểm thông minh</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <div class="container">
-    <h1>📊 Phần mềm cá nhân hóa quản lý điểm số</h1>
-    <p>
-      Ứng dụng hỗ trợ học sinh theo dõi điểm số từng môn,
-      phân tích kết quả học tập và đề xuất mục tiêu cải thiện bằng AI.
-    </p>
+<div class="login" id="loginBox">
+    <h2>🎓 Đăng nhập học sinh</h2>
+    <input type="text" id="studentName" placeholder="Nhập tên của bạn">
+    <button onclick="login()">Bắt đầu</button>
+</div>
 
-    <a href="#" class="btn">🚀 Trải nghiệm ngay</a>
+<div class="app hidden" id="app">
+    <h1>📊 Bảo AI - Quản lý điểm thông minh</h1>
+    <p id="welcome"></p>
 
-    <footer>
-      © 2026 | Dự án học tập cá nhân
-    </footer>
-  </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Môn</th>
+                <th>TX</th>
+                <th>GK</th>
+                <th>CK</th>
+                <th>TB</th>
+                <th>Học lực</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
 
+    <button onclick="addSubject()">➕ Thêm môn</button>
+    <button onclick="saveData()">💾 Lưu</button>
+    <button onclick="exportCSV()">⬇ Xuất CSV</button>
+
+    <h2>📈 Biểu đồ điểm trung bình</h2>
+    <canvas id="chart"></canvas>
+
+    <h2>🤖 AI Gợi ý mục tiêu</h2>
+    <p id="aiSuggest"></p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
