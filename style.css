@@ -1,36 +1,29 @@
 body {
     font-family: Arial;
-    margin: 0;
-    text-align: center;
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-    color: white;
+    padding: 20px;
 }
 
-.hidden { display: none; }
-
-.login {
-    margin-top: 100px;
-}
-
-input {
+nav button {
+    margin-right: 10px;
     padding: 8px;
-    margin: 5px;
 }
 
-button {
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
+input, textarea {
+    display: block;
+    margin: 5px 0;
+    padding: 6px;
+    width: 200px;
 }
 
-table {
-    margin: 20px auto;
-    background: white;
-    color: black;
-    border-collapse: collapse;
+textarea {
+    width: 300px;
+    height: 100px;
 }
 
-th, td {
-    padding: 8px;
-    border: 1px solid #ccc;
+.tab {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
 }
