@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Score Tracker AI</title>
-    <link rel="stylesheet" href="./css/style.css">
+<meta charset="UTF-8">
+<title>Score Tracker AI</title>
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<h1>📊 Score Tracker AI</h1>
+<div class="container">
 
-<nav>
-    <button onclick="showTab('score')">Nhập điểm</button>
-    <button onclick="showTab('predict')">Dự đoán AI</button>
-    <button onclick="showTab('practice')">Luyện tập</button>
-</nav>
+    <header>
+        <h1>📚 Smart Study App</h1>
+        <button class="theme-btn" onclick="toggleTheme()">🎨 Đổi giao diện</button>
+    </header>
 
-<!-- TAB NHẬP ĐIỂM -->
-<div id="score" class="tab">
-    <h2>Nhập điểm</h2>
+    <nav>
+        <button onclick="showTab('score')">📊 Bảng điểm</button>
+        <button onclick="showTab('predict')">🤖 Dự đoán AI</button>
+        <button onclick="showTab('practice')">📝 Luyện tập</button>
+    </nav>
 
-    <input id="tx1" placeholder="TX 1">
-    <input id="tx2" placeholder="TX 2">
-    <input id="tx3" placeholder="TX 3">
-    <input id="tx4" placeholder="TX 4">
-    <input id="tx5" placeholder="TX 5">
+    <!-- TAB ĐIỂM -->
+    <div id="score" class="tab card">
+        <h2>Nhập điểm học kỳ</h2>
 
-    <input id="gk" placeholder="Giữa kỳ">
-    <input id="ck" placeholder="Cuối kỳ">
+        <div class="input-group">
+            <input id="tx1" placeholder="TX1">
+            <input id="tx2" placeholder="TX2">
+            <input id="tx3" placeholder="TX3">
+            <input id="gk" placeholder="Giữa kỳ">
+            <input id="ck" placeholder="Cuối kỳ">
+        </div>
 
-    <button onclick="calculate()">Tính điểm</button>
+        <button class="primary" onclick="calculate()">Tính điểm</button>
 
-    <p id="result"></p>
-    <p id="comment"></p>
+        <h3 id="result"></h3>
+        <p id="comment"></p>
+
+        <div class="piggy">
+            🐷 <span id="goldCount">0</span> thỏi vàng
+        </div>
+    </div>
+
+    <!-- TAB AI -->
+    <div id="predict" class="tab card hidden">
+        <h2>Dự đoán mục tiêu</h2>
+        <input id="hk1" placeholder="Điểm HK I">
+        <input id="target" placeholder="Mục tiêu cả năm">
+        <button class="primary" onclick="predict()">Phân tích</button>
+        <p id="predictResult"></p>
+    </div>
+
+    <!-- TAB LUYỆN -->
+    <div id="practice" class="tab card hidden">
+        <h2>Luyện tập</h2>
+        <textarea id="practiceText" placeholder="Nhập nội dung..."></textarea>
+        <button class="primary" onclick="generateExam()">Tạo đề</button>
+        <pre id="exam"></pre>
+        <button onclick="downloadExam()">Tải đề</button>
+    </div>
+
 </div>
 
-<!-- TAB DỰ ĐOÁN -->
-<div id="predict" class="tab hidden">
-    <h2>Dự đoán AI</h2>
-
-    <input id="hk1" placeholder="HK I">
-    <input id="target" placeholder="Mục tiêu cả năm">
-
-    <button onclick="predict()">Dự đoán HK II</button>
-
-    <p id="predictResult"></p>
-</div>
-
-<!-- TAB LUYỆN TẬP -->
-<div id="practice" class="tab hidden">
-    <h2>Luyện tập</h2>
-
-    <textarea id="practiceText" placeholder="Nhập nội dung bài học"></textarea>
-    <button onclick="generateExam()">Tạo đề</button>
-
-    <pre id="exam"></pre>
-    <button onclick="downloadExam()">Tải đề</button>
-</div>
-
-<script src="./js/data.js"></script>
 <script src="./js/calculator.js"></script>
 <script src="./js/ai.js"></script>
 <script src="./js/practice.js"></script>
